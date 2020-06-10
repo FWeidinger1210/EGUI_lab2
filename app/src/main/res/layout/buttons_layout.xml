@@ -5,7 +5,6 @@
     android:orientation="horizontal">
 
 
-
     <Button
         android:id="@+id/button_delete"
         android:layout_width="0dp"
