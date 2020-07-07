@@ -19,6 +19,13 @@ public class EncryptDecrypt {
     private SecretKeySpec skeySpec;
     private Cipher cipher;
 
+    /**
+     * Constructor that takes the the password, adds salt and creates a hash. This hash is then used to generate the key.
+     * @param password The input entered by the user
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchPaddingException
+     * @throws UnsupportedEncodingException
+     */
     EncryptDecrypt(String password) throws NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException {
         MessageDigest sha =
                 MessageDigest.getInstance("SHA-1");
@@ -29,6 +36,13 @@ public class EncryptDecrypt {
         cipher = Cipher.getInstance("AES");
     }
 
+    /**
+     *
+     * @param clear
+     * @return
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     String encrypt(String clear) throws BadPaddingException, IllegalBlockSizeException {
         byte[] base64 = Base64.encode(clear.getBytes(),
                 Base64.NO_WRAP);
@@ -44,21 +58,22 @@ public class EncryptDecrypt {
         return new String(encryptedBase64);
     }
 
-    String decrypt(String encryptedBase64) {
+    /**
+     *
+     * @param encryptedBase64
+     * @return
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     */
+    String decrypt(String encryptedBase64) throws BadPaddingException, IllegalBlockSizeException,InvalidKeyException{
         byte[] encrypted = Base64.decode(
                 encryptedBase64, Base64.DEFAULT);
-        try {
             cipher.init(Cipher.DECRYPT_MODE, skeySpec);
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        }
         byte[] decryptedBase64 =
                 new byte[0];
-        try {
             decryptedBase64 = cipher.doFinal(encrypted);
-        } catch (BadPaddingException | IllegalBlockSizeException e) {
-            e.printStackTrace();
-        }
+
         byte[] decrypted = Base64.decode(
                 decryptedBase64, Base64.NO_WRAP);
         return new String(decrypted);
