@@ -16,35 +16,35 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2"/>
+                />
 
             <Button
                 android:id="@+id/button_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                />
 
             <Button
                 android:id="@+id/button_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="4"/>
+                />
 
             <Button
                 android:id="@+id/button_4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3"/>
+                />
 
             <Button
                 android:id="@+id/button_5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="7"/>
+               />
 
         </LinearLayout>
 
@@ -58,35 +58,35 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="9"/>
+               />
 
             <Button
                 android:id="@+id/button_7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="6"/>
+                />
 
             <Button
                 android:id="@+id/button_8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="0"/>
+                />
 
             <Button
                 android:id="@+id/button_9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="5"/>
+               />
 
             <Button
                 android:id="@+id/button_0"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="8"/>
+               />
 
         </LinearLayout>
 
