@@ -1,4 +1,4 @@
-package com.fweidinger.egui_lab2;
+package com.fweidinger.egui_lab2.security;
 
 import android.util.Base64;
 
@@ -26,7 +26,7 @@ public class EncryptDecrypt {
      * @throws NoSuchPaddingException
      * @throws UnsupportedEncodingException
      */
-    EncryptDecrypt(String password) throws NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException {
+    public EncryptDecrypt(String password) throws NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException {
         MessageDigest sha =
                 MessageDigest.getInstance("SHA-1");
         byte[] key = Arrays.copyOf(
@@ -37,13 +37,13 @@ public class EncryptDecrypt {
     }
 
     /**
-     *
-     * @param clear
-     * @return
+     * This method will take a given string and encrypt it using the SecretKey and AES algorithm.
+     * @param clear the clear string that shall be encrypted
+     * @return the encrypted String in Base64 encoding
      * @throws BadPaddingException
      * @throws IllegalBlockSizeException
      */
-    String encrypt(String clear) throws BadPaddingException, IllegalBlockSizeException {
+    public String encrypt(String clear) throws BadPaddingException, IllegalBlockSizeException {
         byte[] base64 = Base64.encode(clear.getBytes(),
                 Base64.NO_WRAP);
         try {
@@ -59,14 +59,14 @@ public class EncryptDecrypt {
     }
 
     /**
-     *
-     * @param encryptedBase64
-     * @return
+     * This method decrypts a given string in Base64 encoding
+     * @param encryptedBase64 the enrypted String
+     * @return the decrypted String
      * @throws BadPaddingException
      * @throws IllegalBlockSizeException
      * @throws InvalidKeyException
      */
-    String decrypt(String encryptedBase64) throws BadPaddingException, IllegalBlockSizeException,InvalidKeyException{
+    public String decrypt(String encryptedBase64) throws BadPaddingException, IllegalBlockSizeException,InvalidKeyException{
         byte[] encrypted = Base64.decode(
                 encryptedBase64, Base64.DEFAULT);
             cipher.init(Cipher.DECRYPT_MODE, skeySpec);
